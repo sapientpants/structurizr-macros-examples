@@ -1,9 +1,9 @@
 package io.sapientpants.structurizr.macros.example
 
 import com.structurizr.Workspace
-import com.structurizr.model.Tags
-import com.structurizr.view.Styles
 import io.github.sapientpants.structurizr.macros.*
+
+const val JSON_HTTPS = "JSON/HTTPS"
 
 fun main(args: Array<String>) {
     // Setup the workspace
@@ -75,11 +75,11 @@ fun main(args: Array<String>) {
 
     softwareSystem.uses(emailProvider, "uses")
 
-    mobileFrontend.uses(backend, "uses", "JSON/HTTPS")
-    mobileFrontend.uses(api, "uses", "JSON/HTTPS")
+    mobileFrontend.uses(backend, "uses", JSON_HTTPS)
+    mobileFrontend.uses(api, "uses", JSON_HTTPS)
 
-    webFrontend.uses(backend, "uses", "JSON/HTTPS")
-    webFrontend.uses(api, "uses", "JSON/HTTPS")
+    webFrontend.uses(backend, "uses", JSON_HTTPS)
+    webFrontend.uses(api, "uses", JSON_HTTPS)
 
     backend.uses(database, "uses", "SQL")
     backend.uses(emailProvider, "uses", "SMTP")
