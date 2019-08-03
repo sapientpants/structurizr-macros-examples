@@ -6,7 +6,7 @@ plugins {
 }
 
 group = "io.github.sapientpants"
-version = "1.0-SNAPSHOT"
+version = "0.0.1-SNAPSHOT"
 
 application {
     mainClassName = "io.sapientpants.structurizr.macros.example.MainKt"
