@@ -25,6 +25,13 @@ before_install:
   - unzip -q gradle-${GRADLE_VERSION}-all.zip
   - export PATH="$(pwd)/gradle-${GRADLE_VERSION}/bin:$PATH"
 
-script:
-  - gradle build
-  - sonar-scanner
+jobs:
+  include:
+    - stage: test
+      script:
+        - gradle build
+        - sonar-scanner
+    - stage: deploy
+      script:
+        - gradle run
+      if: branch = master

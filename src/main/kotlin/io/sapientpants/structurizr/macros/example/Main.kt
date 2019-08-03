@@ -104,5 +104,5 @@ fun main(args: Array<String>) {
     Styling.apply(views)
 
     // Render the diagrams
-    PlantUmlRenderer.render(workspace, "./build")
+    StructurizrRenderer.render(workspace)
 }
