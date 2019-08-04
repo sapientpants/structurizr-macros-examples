@@ -104,6 +104,9 @@ fun main(args: Array<String>) {
 
     Arc42Documentation.addToWorkspace(workspace, softwareSystem)
 
+    val systemLandscapeView = views.createSystemLandscapeView("key", "description")
+    systemLandscapeView.addAllElements()
+
     // Apply the style
     Styling.apply(views)
 
