@@ -100,6 +100,10 @@ fun main(args: Array<String>) {
 
     ComponentViews.addToViews(softwareSystem, views)
 
+    AdrDocumentation.addToWorkspace(workspace, softwareSystem)
+
+    Arc42Documentation.addToWorkspace(workspace, softwareSystem)
+
     // Apply the style
     Styling.apply(views)
 
