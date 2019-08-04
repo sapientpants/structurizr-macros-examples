@@ -27,13 +27,9 @@ before_install:
 
 jobs:
   include:
-    - stage: test
-      script:
-        - gradle build
-        - sonar-scanner
-    - stage: deploy
-      script:
-        - gradle run
+    - script: gradle run
       if: branch = master
 
-script: gradle dependencies
+script:
+  - gradle build
+  - sonar-scanner
