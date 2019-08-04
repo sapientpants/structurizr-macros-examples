@@ -6,6 +6,10 @@ jdk:
   - openjdk11
   - openjdk12
 
+addons:
+  sonarcloud:
+    organization: "sapientpants-github"
+
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
   - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
@@ -26,6 +30,7 @@ jobs:
     - stage: test
       script:
         - gradle build
+        - sonar-scanner
     - stage: deploy
       script:
         - gradle run
