@@ -35,3 +35,5 @@ jobs:
       script:
         - gradle run
       if: branch = master
+
+script: gradle dependencies
