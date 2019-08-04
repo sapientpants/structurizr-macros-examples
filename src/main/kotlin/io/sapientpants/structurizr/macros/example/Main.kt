@@ -69,20 +69,12 @@ fun main(args: Array<String>) {
 
     // Wire everything up
 
-    user.uses(softwareSystem, "uses")
     user.uses(mobileFrontend, "uses")
     user.uses(webFrontend, "uses")
 
-    softwareSystem.uses(emailProvider, "uses")
-
-    mobileFrontend.uses(backend, "uses", JSON_HTTPS)
     mobileFrontend.uses(api, "uses", JSON_HTTPS)
 
-    webFrontend.uses(backend, "uses", JSON_HTTPS)
     webFrontend.uses(api, "uses", JSON_HTTPS)
-
-    backend.uses(database, "uses", "SQL")
-    backend.uses(emailProvider, "uses", "SMTP")
 
     api.uses(businessLogic, "uses")
 
@@ -90,6 +82,8 @@ fun main(args: Array<String>) {
     businessLogic.uses(emailProvider, "SMTP")
 
     repository.uses(database, "uses", "SQL")
+
+    model.addImplicitRelationships()
 
     // Declare the diagrams to render
     val views = workspace.views
@@ -103,9 +97,6 @@ fun main(args: Array<String>) {
     AdrDocumentation.addToWorkspace(workspace, softwareSystem)
 
     Arc42Documentation.addToWorkspace(workspace, softwareSystem)
-
-    val systemLandscapeView = views.createSystemLandscapeView("key", "description")
-    systemLandscapeView.addAllElements()
 
     // Apply the style
     Styling.apply(views)
