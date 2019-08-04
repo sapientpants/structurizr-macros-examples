@@ -27,7 +27,8 @@ before_install:
 
 jobs:
   include:
-    - script: gradle run
+    - stage: deploy
+      script: gradle run
       if: branch = master
 
 script:
