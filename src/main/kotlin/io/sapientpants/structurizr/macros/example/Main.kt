@@ -1,16 +1,20 @@
 package io.sapientpants.structurizr.macros.example
 
-import com.structurizr.Workspace
 import io.github.sapientpants.structurizr.macros.*
 
 const val JSON_HTTPS = "JSON/HTTPS"
 
 fun main(args: Array<String>) {
     // Setup the workspace
-    val workspace = Workspace("Structurizr Macros Example",
-        "An example project demonstrating how to use the Structurizr macros")
+    val workspace = StructurizrInitializer.init(
+        "Structurizr Macros Example",
+        "An example project demonstrating how to use the Structurizr macros",
+        "Structurizr Macros Inc."
+    )
 
     val model = workspace.model
+
+    val views = workspace.views
 
     // Define users
 
@@ -86,7 +90,6 @@ fun main(args: Array<String>) {
     model.addImplicitRelationships()
 
     // Declare the diagrams to render
-    val views = workspace.views
 
     SystemContextView.addToViews(softwareSystem, views)
 
