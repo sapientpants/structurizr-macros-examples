@@ -1,8 +1,10 @@
 package io.sapientpants.structurizr.macros.example
 
+import com.structurizr.model.Location
 import io.github.sapientpants.structurizr.macros.*
 
 const val JSON_HTTPS = "JSON/HTTPS"
+const val SMTP = "SMTP"
 
 fun main(args: Array<String>) {
     // Setup the workspace
@@ -18,16 +20,28 @@ fun main(args: Array<String>) {
 
     // Define users
 
-    val user = model.addPerson("A user",
+    val user = model.addPerson(
+        Location.External,
+        "A user",
         "Anyone who uses the Structurizr Macros Example system")
 
     // Define software systems
 
-    val softwareSystem = model.addSoftwareSystem("Structurizr Macros Example",
+    val softwareSystem = model.addSoftwareSystem(
+        Location.Internal,
+        "Structurizr Macros Example",
         "A system for demonstrating the Structurizr Macros")
     softwareSystem.addTags(Styling.SYSTEM_OF_INTEREST_TAG)
 
-    val emailProvider = model.addSoftwareSystem("Email Provider",
+    val emailSystem = model.addSoftwareSystem(
+        Location.Internal,
+        "Structurizr Macros Email System",
+        "The internal email system"
+    )
+
+    val emailProvider = model.addSoftwareSystem(
+        Location.External,
+        "Email Provider",
         "A system for delivering email to users")
 
     // Define containers
@@ -47,7 +61,7 @@ fun main(args: Array<String>) {
         "Spring Boot, Kotlin")
 
     val database = softwareSystem.addContainer("Database",
-        "The datastore for the Structurizr Macros Example system",
+        "The data store for the Structurizr Macros Example system",
         "PostgreSQL")
     database.addTags(Styling.DATABASE_TAG)
 
@@ -83,7 +97,9 @@ fun main(args: Array<String>) {
     api.uses(businessLogic, "uses")
 
     businessLogic.uses(repository, "uses")
-    businessLogic.uses(emailProvider, "SMTP")
+    businessLogic.uses(emailSystem, "uses", SMTP)
+
+    emailSystem.uses(emailProvider, "uses", SMTP)
 
     repository.uses(database, "uses", "SQL")
 
