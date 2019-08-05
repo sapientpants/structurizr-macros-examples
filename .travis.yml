@@ -27,10 +27,12 @@ before_install:
 
 jobs:
   include:
+    - stage: scan
+      script: sonar-scanner
+      if: branch = master
     - stage: deploy
       script: gradle run
       if: branch = master
 
 script:
   - gradle build
-  - sonar-scanner
