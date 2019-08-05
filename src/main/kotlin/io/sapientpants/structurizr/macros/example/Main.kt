@@ -35,12 +35,12 @@ fun main(args: Array<String>) {
     val mobileFrontend = softwareSystem.addContainer("Mobile Frontend",
         "The mobile frontend for the Structurizr Macros Example system",
         "Android/Kotlin, iOS/Swift")
-    mobileFrontend.addTags(ComponentViews.DO_NOT_RENDER, Styling.MOBILE_DEVICE_PORTRAIT_TAG)
+    mobileFrontend.addTags(Styling.MOBILE_DEVICE_PORTRAIT_TAG)
 
     val webFrontend = softwareSystem.addContainer("Web Frontend",
         "The web frontend for the Structurizr Macros Example system",
         "Vue.js")
-    webFrontend.addTags(ComponentViews.DO_NOT_RENDER, Styling.WEB_BROWSER_TAG)
+    webFrontend.addTags(Styling.WEB_BROWSER_TAG)
 
     val backend = softwareSystem.addContainer("Backend",
         "The backend for the Structurizr Macros Example system",
@@ -49,7 +49,7 @@ fun main(args: Array<String>) {
     val database = softwareSystem.addContainer("Database",
         "The datastore for the Structurizr Macros Example system",
         "PostgreSQL")
-    database.addTags(ComponentViews.DO_NOT_RENDER, Styling.DATABASE_TAG)
+    database.addTags(Styling.DATABASE_TAG)
 
     // Define components
 
@@ -91,9 +91,13 @@ fun main(args: Array<String>) {
 
     // Declare the diagrams to render
 
+    SystemLandscapeView.addToViews(softwareSystem, views)
+
     SystemContextView.addToViews(softwareSystem, views)
 
     ContainerViews.addToViews(softwareSystem, views)
+
+    NearestNeighboursView.addToViews(softwareSystem.containers, views)
 
     ComponentViews.addToViews(softwareSystem, views)
 
