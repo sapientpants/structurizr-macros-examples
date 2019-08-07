@@ -107,15 +107,15 @@ fun main(args: Array<String>) {
 
     // Declare the diagrams to render
 
-    SystemLandscapeView.addToViews(softwareSystem, views)
+    SystemLandscapeView.addToViews(model.enterprise, views)
 
     SystemContextView.addToViews(softwareSystem, views)
 
     ContainerView.addToViews(softwareSystem, views)
 
-    NearestNeighboursView.addToViews(softwareSystem.containers, views)
+    ContainerContextViews.addToViews(softwareSystem.containers, views)
 
-    ComponentViews.addToViews(softwareSystem, views)
+    ComponentViews.addToViews(softwareSystem.containers, views)
 
     AdrDocumentation.addToWorkspace(workspace, softwareSystem)
 
