@@ -111,7 +111,7 @@ fun main(args: Array<String>) {
 
     SystemContextView.addToViews(softwareSystem, views)
 
-    ContainerViews.addToViews(softwareSystem, views)
+    ContainerView.addToViews(softwareSystem, views)
 
     NearestNeighboursView.addToViews(softwareSystem.containers, views)
 
