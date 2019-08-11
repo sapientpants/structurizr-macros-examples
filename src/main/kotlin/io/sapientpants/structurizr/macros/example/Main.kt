@@ -107,7 +107,7 @@ fun main(args: Array<String>) {
 
     // Declare the diagrams to render
 
-    SystemLandscapeView.addToViews(model.enterprise, views)
+    SystemLandscapeView.addToViews(model, views)
 
     SystemContextView.addToViews(softwareSystem, views)
 
