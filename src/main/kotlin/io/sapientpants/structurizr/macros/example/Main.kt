@@ -12,7 +12,7 @@ fun main(args: Array<String>) {
         "Structurizr Macros Inc.",
         "Structurizr Macros Example",
         "An example project demonstrating how to use the Structurizr macros"
-    ) { _, model, _ ->
+    ) { model ->
         // Define users
 
         val user = model.addPerson(
