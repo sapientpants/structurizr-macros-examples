@@ -1,1 +1,2 @@
-## Solution Strategy
+Solution Strategy {#section-solution-strategy}
+=================

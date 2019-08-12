@@ -1,1 +1,2 @@
-## Architecture Constraints
+Architecture Constraints {#section-architecture-constraints}
+========================
