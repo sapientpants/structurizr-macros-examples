@@ -1,79 +1,59 @@
-Building Block View {#section-building-block-view}
-===================
+## Building Block View
 
-Whitebox Overall System {#_whitebox_overall_system}
------------------------
+###  Whitebox Overall System
 
-***\<Overview Diagram\>***
+#### Name black box n
 
-Motivation
+*Purpose/Responsibility*
 
-:   *\<text explanation\>*
+*Interface(s)*
 
-Contained Building Blocks
+*(Optional) Quality/Performance Characteristics*
 
-:   *\<Description of contained building block (black boxes)\>*
+*(Optional) Directory/File Location*
 
-Important Interfaces
+*(Optional) Fulfilled Requirements*
 
-:   *\<Description of important interfaces\>*
-
-### \<Name black box 1\> {#__name_black_box_1}
-
-*\<Purpose/Responsibility\>*
-
-*\<Interface(s)\>*
-
-*\<(Optional) Quality/Performance Characteristics\>*
-
-*\<(Optional) Directory/File Location\>*
-
-*\<(Optional) Fulfilled Requirements\>*
-
-*\<(optional) Open Issues/Problems/Risks\>*
-
-### \<Name black box 2\> {#__name_black_box_2}
-
-*\<black box template\>*
-
-### \<Name black box n\> {#__name_black_box_n}
-
-*\<black box template\>*
-
-### \<Name interface 1\> {#__name_interface_1}
+*(optional) Open Issues/Problems/Risks*
 
 ...
 
-### \<Name interface m\> {#__name_interface_m}
+### Level 2
 
-Level 2 {#_level_2}
--------
+#### White Box *building block m*
 
-### White Box *\<building block 1\>* {#_white_box_emphasis_building_block_1_emphasis}
+##### Name black box n
 
-*\<white box template\>*
+*Purpose/Responsibility*
 
-### White Box *\<building block 2\>* {#_white_box_emphasis_building_block_2_emphasis}
+*Interface(s)*
 
-*\<white box template\>*
+*(Optional) Quality/Performance Characteristics*
+
+*(Optional) Directory/File Location*
+
+*(Optional) Fulfilled Requirements*
+
+*(optional) Open Issues/Problems/Risks*
 
 ...
 
-### White Box *\<building block m\>* {#_white_box_emphasis_building_block_m_emphasis}
+### Level 3
 
-*\<white box template\>*
+#### White Box *building block m*
 
-Level 3 {#_level_3}
--------
+##### Name black box n
 
-### White Box \<\_building block x.1\_\> {#_white_box_building_block_x_1}
+*Purpose/Responsibility*
 
-*\<white box template\>*
+*Interface(s)*
 
-### White Box \<\_building block x.2\_\> {#_white_box_building_block_x_2}
+*(Optional) Quality/Performance Characteristics*
 
-*\<white box template\>*
+*(Optional) Directory/File Location*
 
-### White Box \<\_building block y.1\_\> {#_white_box_building_block_y_1}
+*(Optional) Fulfilled Requirements*
 
-*\<white box template\>*
+*(optional) Open Issues/Problems/Risks*
+
+...

@@ -1,20 +1,8 @@
-System Scope and Context {#section-system-scope-and-context}
-========================
+## Context and Scope
 
 ![](embed:SystemContext)
 
-Business Context {#_business_context}
-----------------
+### Business Context
 
-**\<Diagram or Table\>**
+### Technical Context
 
-**\<optionally: Explanation of external domain interfaces\>**
-
-Technical Context {#_technical_context}
------------------
-
-**\<Diagram or Table\>**
-
-**\<optionally: Explanation of technical interfaces\>**
-
-**\<Mapping Input/Output to Channels\>**

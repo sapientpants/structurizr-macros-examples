@@ -1,2 +1,1 @@
-Risks and Technical Debts {#section-technical-risks}
-=========================
+## Risks and Technical Debt
