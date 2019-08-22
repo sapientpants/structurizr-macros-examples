@@ -1,8 +1,10 @@
 package io.sapientpants.structurizr.macros.example
 
 import com.structurizr.model.Location
+import com.structurizr.model.Tags
 import io.github.sapientpants.structurizr.macros.*
 import io.github.sapientpants.structurizr.macros.builder.StructurizrBuilder
+import io.github.sapientpants.structurizr.macros.documentation.ArchitectureDocumentation
 
 const val JSON_HTTPS = "JSON/HTTPS"
 const val SMTP = "SMTP"
@@ -11,14 +13,22 @@ fun main(args: Array<String>) {
     StructurizrBuilder.build(
         "Structurizr Macros Inc.",
         "Structurizr Macros Example",
-        "An example project demonstrating how to use the Structurizr macros"
+        "An example project demonstrating how to use the Structurizr macros",
+        architectureDocumentation = ArchitectureDocumentation.ARC_42,
+        includeADR = true
     ) { model ->
         // Define users
 
-        val user = model.addPerson(
+        val admin = model.addPerson(
+            Location.Internal,
+            "An Administrator",
+            "Any administrator who administers the Structurizr Macros Example system"
+        )
+
+        val customer = model.addPerson(
             Location.External,
-            "A user",
-            "Anyone who uses the Structurizr Macros Example system")
+            "A customer",
+            "Any customer who uses the Structurizr Macros Example system")
 
         // Define software systems
 
@@ -51,8 +61,8 @@ fun main(args: Array<String>) {
             "Vue.js")
         webFrontend.addTags(Styling.WEB_BROWSER_TAG)
 
-        val backend = softwareSystem.addContainer("Backend",
-            "The backend for the Structurizr Macros Example system",
+        val backend = softwareSystem.addContainer("API",
+            "The API for the Structurizr Macros Example system",
             "Spring Boot, Kotlin")
 
         val database = softwareSystem.addContainer("Database",
@@ -68,34 +78,123 @@ fun main(args: Array<String>) {
 
         // backend components
 
-        val api = backend.addComponent("API",
-            "The API endpoints",
+        val adminViews = backend.addComponent("Admin Views",
+            "The Administrator views",
+            "Spring Boot, Kotlin, HTML, CSS")
+
+        val adminPresenters = backend.addComponent("Admin Presenters",
+            "The Administrator presenters",
             "Spring Boot, Kotlin")
 
-        val businessLogic = backend.addComponent("Business Logic",
-            "The business logic",
-            "Sprint Boot, Kotlin")
+        val adminInteractors = backend.addComponent("Admin Interactors",
+            "The Administrator interactors",
+            "Spring Boot, Kotlin")
 
-        val repository = backend.addComponent("Repository",
-            "The repository for accessing data",
-            "Sprint Boot, Kotlin")
+        val adminDataGateway = backend.addComponent("Admin Data Gateway",
+            "The Admin Data Gateway",
+            "Spring Boot, Kotlin")
+
+        val adminControllers = backend.addComponent("Admin Controllers",
+            "The Administrator controllers",
+            "Spring Boot, Kotlin")
+
+        val productDetailsViews = backend.addComponent("Product Details Views",
+            "The Product Details views",
+            "Spring Boot, Kotlin, HTML, CSS")
+
+        val productDetailsPresenters = backend.addComponent("Product Details Presenters",
+            "The Product Details presenters",
+            "Spring Boot, Kotlin")
+
+        val productDetailsInteractors = backend.addComponent("Product Details Interactors",
+            "The Product Details interactors",
+            "Spring Boot, Kotlin")
+
+        val productDetailsDataGateway = backend.addComponent("Product Details Data Gateway",
+            "The Product Details Data Gateway",
+            "Spring Boot, Kotlin")
+
+        val productDetailsControllers = backend.addComponent("Product Details Controllers",
+            "The Product Details controllers",
+            "Spring Boot, Kotlin")
+
+        val searchViews = backend.addComponent("Search Views",
+            "The Search views",
+            "Spring Boot, Kotlin, HTML, CSS")
+
+        val searchPresenters = backend.addComponent("Search Presenters",
+            "The Search presenters",
+            "Spring Boot, Kotlin")
+
+        val searchInteractors = backend.addComponent("Search Interactors",
+            "The Search interactors",
+            "Spring Boot, Kotlin")
+
+        val searchDataGateway = backend.addComponent("Search Data Gateway",
+            "The Search Data Gateway",
+            "Spring Boot, Kotlin")
+
+        val searchControllers = backend.addComponent("Search Controllers",
+            "The Search controllers",
+            "Spring Boot, Kotlin")
+
+        val shoppingCartViews = backend.addComponent("Shopping Cart Views",
+            "The Shopping Cart views",
+            "Spring Boot, Kotlin, HTML, CSS")
+
+        val shoppingCartPresenters = backend.addComponent("Shopping Cart Presenters",
+            "The Shopping Cart presenters",
+            "Spring Boot, Kotlin")
+
+        val shoppingCartInteractors = backend.addComponent("Shopping Cart Interactors",
+            "The Shopping Cart interactors",
+            "Spring Boot, Kotlin")
+
+        val shoppingCartDataGateway = backend.addComponent("Shopping Cart Data Gateway",
+            "The Shopping Cart Data Gateway",
+            "Spring Boot, Kotlin")
+
+        val shoppingCartControllers = backend.addComponent("Shopping Cart Controllers",
+            "The Shopping Cart controllers",
+            "Spring Boot, Kotlin")
 
         // Wire everything up
 
-        user.uses(mobileFrontend, "uses")
-        user.uses(webFrontend, "uses")
+        customer.uses(mobileFrontend, "uses")
+        customer.uses(webFrontend, "uses")
 
-        mobileFrontend.uses(api, "uses", JSON_HTTPS)
+        admin.uses(adminControllers, "uses")
 
-        webFrontend.uses(api, "uses", JSON_HTTPS)
+        adminControllers.uses(adminInteractors, "uses")
+        adminControllers.uses(emailSystem, "uses")
+        adminInteractors.uses(adminPresenters, "uses")
+        adminInteractors.uses(adminDataGateway, "uses")
+        adminPresenters.uses(adminViews, "uses")
 
-        api.uses(businessLogic, "uses")
+        customer.uses(productDetailsControllers, "uses")
+        customer.uses(searchControllers, "uses")
+        customer.uses(shoppingCartControllers, "uses")
 
-        businessLogic.uses(repository, "uses")
-        businessLogic.uses(emailSystem, "uses", SMTP)
+        adminDataGateway.uses(database, "uses")
+        productDetailsDataGateway.uses(database, "uses")
+        searchDataGateway.uses(database, "uses")
+        shoppingCartDataGateway.uses(database, "uses")
+
+        productDetailsControllers.uses(productDetailsInteractors, "uses")
+        productDetailsInteractors.uses(productDetailsPresenters, "uses")
+        productDetailsInteractors.uses(productDetailsDataGateway, "uses")
+        productDetailsPresenters.uses(productDetailsViews, "uses")
+
+        searchControllers.uses(searchInteractors, "uses")
+        searchInteractors.uses(searchPresenters, "uses")
+        searchInteractors.uses(searchDataGateway, "uses")
+        searchPresenters.uses(searchViews, "uses")
+
+        shoppingCartControllers.uses(shoppingCartInteractors, "uses")
+        shoppingCartInteractors.uses(shoppingCartPresenters, "uses")
+        shoppingCartInteractors.uses(shoppingCartDataGateway, "uses")
+        shoppingCartPresenters.uses(shoppingCartViews, "uses")
 
         emailSystem.uses(emailProvider, "uses", SMTP)
-
-        repository.uses(database, "uses", "SQL")
     }
 }
