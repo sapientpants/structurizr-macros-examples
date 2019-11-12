@@ -1,8 +1,7 @@
 package io.sapientpants.structurizr.macros.example
 
 import com.structurizr.model.Location
-import com.structurizr.model.Tags
-import io.github.sapientpants.structurizr.macros.*
+import io.github.sapientpants.structurizr.macros.Tags
 import io.github.sapientpants.structurizr.macros.builder.StructurizrBuilder
 import io.github.sapientpants.structurizr.macros.documentation.ArchitectureDocumentation
 
@@ -36,7 +35,7 @@ fun main(args: Array<String>) {
             Location.Internal,
             "Structurizr Macros Example",
             "A system for demonstrating the Structurizr Macros")
-        softwareSystem.addTags(Styling.SYSTEM_OF_INTEREST_TAG)
+        softwareSystem.addTags(Tags.SYSTEM_OF_INTEREST)
 
         val emailSystem = model.addSoftwareSystem(
             Location.Internal,
@@ -54,12 +53,12 @@ fun main(args: Array<String>) {
         val mobileFrontend = softwareSystem.addContainer("Mobile Frontend",
             "The mobile frontend for the Structurizr Macros Example system",
             "Android/Kotlin, iOS/Swift")
-        mobileFrontend.addTags(Styling.MOBILE_DEVICE_PORTRAIT_TAG)
+        mobileFrontend.addTags(Tags.MOBILE_DEVICE_PORTRAIT)
 
         val webFrontend = softwareSystem.addContainer("Web Frontend",
             "The web frontend for the Structurizr Macros Example system",
             "Vue.js")
-        webFrontend.addTags(Styling.WEB_BROWSER_TAG)
+        webFrontend.addTags(Tags.WEB_BROWSER)
 
         val backend = softwareSystem.addContainer("API",
             "The API for the Structurizr Macros Example system",
@@ -68,7 +67,7 @@ fun main(args: Array<String>) {
         val database = softwareSystem.addContainer("Database",
             "The data store for the Structurizr Macros Example system",
             "PostgreSQL")
-        database.addTags(Styling.DATABASE_TAG)
+        database.addTags(Tags.DATABASE)
 
         // Define components
 

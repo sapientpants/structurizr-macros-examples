@@ -2,7 +2,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     application
-    kotlin("jvm") version "1.3.41"
+    kotlin("jvm") version "1.3.50"
 }
 
 group = "io.github.sapientpants"
@@ -13,12 +13,13 @@ application {
 }
 
 repositories {
+    mavenLocal()
     mavenCentral()
 }
 
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
-    implementation("io.github.sapientpants:structurizr-macros:0.0.17")
+    implementation("io.github.sapientpants:structurizr-macros:0.0.26")
 }
 
 tasks.withType<KotlinCompile> {
