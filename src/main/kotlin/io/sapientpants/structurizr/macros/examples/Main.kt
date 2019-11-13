@@ -1,4 +1,4 @@
-package io.sapientpants.structurizr.macros.example
+package io.sapientpants.structurizr.macros.examples
 
 import com.structurizr.model.Location
 import io.github.sapientpants.structurizr.macros.Tags
@@ -15,7 +15,7 @@ fun main(args: Array<String>) {
         "An example project demonstrating how to use the Structurizr macros",
         architectureDocumentation = ArchitectureDocumentation.ARC_42,
         includeADR = true
-    ) { model ->
+    ) { model, _ ->
         // Define users
 
         val admin = model.addPerson(
