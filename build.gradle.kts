@@ -18,7 +18,7 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
-    implementation("io.github.sapientpants:structurizr-macros:0.0.28")
+    implementation("io.github.sapientpants:structurizr-macros:0.0.29")
 }
 
 tasks.withType<KotlinCompile> {
