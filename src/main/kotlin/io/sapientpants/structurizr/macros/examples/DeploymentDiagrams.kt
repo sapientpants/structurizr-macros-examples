@@ -11,12 +11,12 @@ private const val DATABASE_TAG = "Database"
 private const val FAILOVER_TAG = "Failover"
 
 fun main(args: Array<String>) {
-    StructurizrBuilder.build(
+    StructurizrBuilder(
         "Structurizr Macros Inc.",
         "Structurizr Macros Example",
-        "An example project demonstrating how to use the Structurizr macros",
-        addImplicitRelationships = false
-    ) { model, _ ->
+        "An example project demonstrating how to use the Structurizr macros"
+    ).addImplicitRelationships(false)
+        .build() { model, _ ->
         val internetBankingSystem = model.addSoftwareSystem(
             Location.Internal,
             "Internet Banking System",

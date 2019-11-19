@@ -9,11 +9,11 @@ import com.structurizr.model.Person
 
 
 fun main(args: Array<String>) {
-    StructurizrBuilder.build(
+    StructurizrBuilder(
         "Structurizr Macros Inc.",
         "Structurizr Macros Example",
         "An example project demonstrating how to use the Structurizr macros"
-    ) { model, views ->
+    ).build() { model, views ->
         model.addPerson(
             Location.External,
             "Personal Banking Customer",
