@@ -16,7 +16,7 @@ fun main(args: Array<String>) {
         "Structurizr Macros Example",
         "An example project demonstrating how to use the Structurizr macros"
     ).addImplicitRelationships(false)
-        .build() { model, _ ->
+        .buildAndRender { model, _ ->
         val internetBankingSystem = model.addSoftwareSystem(
             Location.Internal,
             "Internet Banking System",

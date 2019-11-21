@@ -13,7 +13,7 @@ fun main(args: Array<String>) {
         "Structurizr Macros Inc.",
         "Structurizr Macros Example",
         "An example project demonstrating how to use the Structurizr macros"
-    ).build() { model, views ->
+    ).buildAndRender { model, views ->
         model.addPerson(
             Location.External,
             "Personal Banking Customer",

@@ -14,8 +14,8 @@ fun main(args: Array<String>) {
         "Structurizr Macros Example",
         "An example project demonstrating how to use the Structurizr macros"
     ).architectureDocumentation(ArchitectureDocumentation.ARC_42)
-        .includeADR(true)
-        .build() { model, _ ->
+        .adrSourcePath("./src/main/markdown/adr")
+        .buildAndRender { model, _ ->
             // Define users
 
             val admin = model.addPerson(
