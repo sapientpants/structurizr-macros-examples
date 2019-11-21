@@ -15,6 +15,7 @@ fun main(args: Array<String>) {
         "An example project demonstrating how to use the Structurizr macros"
     ).architectureDocumentation(ArchitectureDocumentation.ARC_42)
         .adrSourcePath("./src/main/markdown/adr")
+        .documentationSourcePath("./src/main/markdown/arc42")
         .buildAndRender { model, _ ->
             // Define users
 
