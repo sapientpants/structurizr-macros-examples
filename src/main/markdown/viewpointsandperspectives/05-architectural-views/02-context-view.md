@@ -1,3 +1,3 @@
 ### Context View
 
-![](embed:SystemContext)
+![](embed:SystemContext-Software System)

@@ -1,6 +1,6 @@
 ## Context and Scope
 
-![](embed:SystemContext)
+![](embed:SystemContext-Software System)
 
 ### Business Context
 
