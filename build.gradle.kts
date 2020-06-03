@@ -3,8 +3,8 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     application
     kotlin("jvm") version "1.3.70"
-    id("org.jlleitschuh.gradle.ktlint") version "9.1.1"
-    id("org.jlleitschuh.gradle.ktlint-idea") version "9.1.1"
+    id("org.jlleitschuh.gradle.ktlint") version "9.2.1"
+    id("org.jlleitschuh.gradle.ktlint-idea") version "9.2.1"
 }
 
 group = "io.github.sapientpants"
