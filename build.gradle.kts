@@ -15,13 +15,12 @@ application {
 }
 
 repositories {
-    mavenLocal()
     mavenCentral()
 }
 
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
-    implementation("io.github.sapientpants:structurizr-macros:0.0.34-SNAPSHOT")
+    implementation("io.github.sapientpants:structurizr-macros:0.0.34")
 }
 
 tasks.withType<KotlinCompile> {
