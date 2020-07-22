@@ -27,10 +27,10 @@ jobs:
   include:
     - stage: scan
       script: sonar-scanner
-      if: branch = master
+      if: branch = trunk
     - stage: deploy
       script: gradle run
-      if: branch = master
+      if: branch = trunk
 
 script:
   - gradle build
