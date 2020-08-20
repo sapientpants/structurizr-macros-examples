@@ -13,9 +13,11 @@ private const val BANK_STAFF_TAG = "Bank Staff"
 private const val FAILOVER_TAG = "Failover"
 
 fun main(args: Array<String>) {
+    val enterpriseName = "Big Bank plc"
+
     StructurizrBuilder(
-        "Big Bank plc",
-        "Big Bank plc",
+        enterpriseName,
+        enterpriseName,
         """|This is an example workspace to illustrate the key features of
            |Structurizr, based around a fictional online banking system.""".trimMargin()
     ).buildAndRender { model, views ->
@@ -206,7 +208,7 @@ fun main(args: Array<String>) {
         ).add(singlePageApplication)
 
         val bigBankDataCenter =
-            model.addDeploymentNode("Live", "Big Bank plc", "", "Big Bank plc data center")
+            model.addDeploymentNode("Live", enterpriseName, "", "Big Bank plc data center")
 
         val liveWebServer = bigBankDataCenter.addDeploymentNode(
             "bigbank-web***",
