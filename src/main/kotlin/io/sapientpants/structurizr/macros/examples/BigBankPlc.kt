@@ -12,7 +12,7 @@ private const val EXISTING_SYSTEM_TAG = "Existing System"
 private const val BANK_STAFF_TAG = "Bank Staff"
 private const val FAILOVER_TAG = "Failover"
 
-fun main(args: Array<String>) {
+fun main() {
     val enterpriseName = "Big Bank plc"
 
     StructurizrBuilder(

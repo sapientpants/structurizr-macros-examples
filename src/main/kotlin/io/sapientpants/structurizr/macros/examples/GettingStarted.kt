@@ -2,7 +2,7 @@ package io.sapientpants.structurizr.macros.examples
 
 import io.github.sapientpants.structurizr.macros.builder.StructurizrBuilder
 
-fun main(args: Array<String>) {
+fun main() {
     StructurizrBuilder(
         "structurizr-macros-examples",
         "Getting Started",

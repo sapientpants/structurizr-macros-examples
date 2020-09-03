@@ -33,7 +33,7 @@ class MicroservicesExampleStyle : Style() {
     }
 }
 
-fun main(args: Array<String>) {
+fun main() {
     StructurizrBuilder(
         "structurizr-macros-examples",
         "Microservices example",
@@ -41,140 +41,140 @@ fun main(args: Array<String>) {
         |and parallel behaviour.""".trimMargin()
     ).style(MicroservicesExampleStyle())
         .buildAndRender { model, views ->
-        val mySoftwareSystem = model.addSoftwareSystem(
-            "Customer Information System",
-            "Stores information "
-        )
-        val customer = model.addPerson("Customer", "A customer")
-        val customerApplication: Container = mySoftwareSystem.addContainer(
-            "Customer Application",
-            "Allows customers to manage their profile.",
-            "Angular"
-        )
+            val mySoftwareSystem = model.addSoftwareSystem(
+                "Customer Information System",
+                "Stores information "
+            )
+            val customer = model.addPerson("Customer", "A customer")
+            val customerApplication: Container = mySoftwareSystem.addContainer(
+                "Customer Application",
+                "Allows customers to manage their profile.",
+                "Angular"
+            )
 
-        val customerService: Container = mySoftwareSystem.addContainer(
-            "Customer Service",
-            "The point of access for customer information.",
-            "Java and Spring Boot"
-        )
-        customerService.addTags(MICROSERVICE_TAG)
-        val customerDatabase: Container = mySoftwareSystem.addContainer(
-            "Customer Database",
-            "Stores customer information.",
-            "Oracle 12c"
-        )
-        customerDatabase.addTags(DATASTORE_TAG)
+            val customerService: Container = mySoftwareSystem.addContainer(
+                "Customer Service",
+                "The point of access for customer information.",
+                "Java and Spring Boot"
+            )
+            customerService.addTags(MICROSERVICE_TAG)
+            val customerDatabase: Container = mySoftwareSystem.addContainer(
+                "Customer Database",
+                "Stores customer information.",
+                "Oracle 12c"
+            )
+            customerDatabase.addTags(DATASTORE_TAG)
 
-        val reportingService: Container = mySoftwareSystem.addContainer(
-            "Reporting Service",
-            "Creates normalised data for reporting purposes.",
-            "Ruby"
-        )
-        reportingService.addTags(MICROSERVICE_TAG)
-        val reportingDatabase: Container = mySoftwareSystem.addContainer(
-            "Reporting Database",
-            "Stores a normalised version of all business data for ad hoc reporting purposes.",
-            "MySQL"
-        )
-        reportingDatabase.addTags(DATASTORE_TAG)
+            val reportingService: Container = mySoftwareSystem.addContainer(
+                "Reporting Service",
+                "Creates normalised data for reporting purposes.",
+                "Ruby"
+            )
+            reportingService.addTags(MICROSERVICE_TAG)
+            val reportingDatabase: Container = mySoftwareSystem.addContainer(
+                "Reporting Database",
+                "Stores a normalised version of all business data for ad hoc reporting purposes.",
+                "MySQL"
+            )
+            reportingDatabase.addTags(DATASTORE_TAG)
 
-        val auditService: Container = mySoftwareSystem.addContainer(
-            "Audit Service",
-            "Provides organisation-wide auditing facilities.",
-            "C# .NET"
-        )
-        auditService.addTags(MICROSERVICE_TAG)
-        val auditStore: Container = mySoftwareSystem.addContainer(
-            "Audit Store",
-            "Stores information about events that have happened.",
-            "Event Store"
-        )
-        auditStore.addTags(DATASTORE_TAG)
+            val auditService: Container = mySoftwareSystem.addContainer(
+                "Audit Service",
+                "Provides organisation-wide auditing facilities.",
+                "C# .NET"
+            )
+            auditService.addTags(MICROSERVICE_TAG)
+            val auditStore: Container = mySoftwareSystem.addContainer(
+                "Audit Store",
+                "Stores information about events that have happened.",
+                "Event Store"
+            )
+            auditStore.addTags(DATASTORE_TAG)
 
-        val messageBus: Container = mySoftwareSystem.addContainer(
-            "Message Bus",
-            "Transport for business events.",
-            "RabbitMQ"
-        )
-        messageBus.addTags(MESSAGE_BUS_TAG)
+            val messageBus: Container = mySoftwareSystem.addContainer(
+                "Message Bus",
+                "Transport for business events.",
+                "RabbitMQ"
+            )
+            messageBus.addTags(MESSAGE_BUS_TAG)
 
-        customer.uses(customerApplication, "Uses")
-        customerApplication.uses(
-            customerService,
-            "Updates customer information using",
-            "JSON/HTTPS",
-            Synchronous
-        )
-        customerService.uses(
-            messageBus,
-            "Sends customer update events to",
-            "",
-            Asynchronous
-        )
-        customerService.uses(
-            customerDatabase,
-            "Stores data in",
-            "JDBC",
-            Synchronous
-        )
-        customerService.uses(
-            customerApplication,
-            "Sends events to",
-            "WebSocket",
-            Asynchronous
-        )
-        messageBus.uses(
-            reportingService,
-            "Sends customer update events to",
-            "",
-            Asynchronous
-        )
-        messageBus.uses(
-            auditService,
-            "Sends customer update events to",
-            "",
-            Asynchronous
-        )
-        reportingService.uses(
-            reportingDatabase,
-            "Stores data in",
-            "",
-            Synchronous
-        )
-        auditService.uses(
-            auditStore,
-            "Stores events in",
-            "",
-            Synchronous
-        )
+            customer.uses(customerApplication, "Uses")
+            customerApplication.uses(
+                customerService,
+                "Updates customer information using",
+                "JSON/HTTPS",
+                Synchronous
+            )
+            customerService.uses(
+                messageBus,
+                "Sends customer update events to",
+                "",
+                Asynchronous
+            )
+            customerService.uses(
+                customerDatabase,
+                "Stores data in",
+                "JDBC",
+                Synchronous
+            )
+            customerService.uses(
+                customerApplication,
+                "Sends events to",
+                "WebSocket",
+                Asynchronous
+            )
+            messageBus.uses(
+                reportingService,
+                "Sends customer update events to",
+                "",
+                Asynchronous
+            )
+            messageBus.uses(
+                auditService,
+                "Sends customer update events to",
+                "",
+                Asynchronous
+            )
+            reportingService.uses(
+                reportingDatabase,
+                "Stores data in",
+                "",
+                Synchronous
+            )
+            auditService.uses(
+                auditStore,
+                "Stores events in",
+                "",
+                Synchronous
+            )
 
-        val dynamicView = views.createDynamicView(
-            mySoftwareSystem,
-            "CustomerUpdateEvent",
-            "This diagram shows what happens when a customer updates their details."
-        )
-        dynamicView.add(customer, customerApplication)
-        dynamicView.add(customerApplication, customerService)
+            val dynamicView = views.createDynamicView(
+                mySoftwareSystem,
+                "CustomerUpdateEvent",
+                "This diagram shows what happens when a customer updates their details."
+            )
+            dynamicView.add(customer, customerApplication)
+            dynamicView.add(customerApplication, customerService)
 
-        dynamicView.add(customerService, customerDatabase)
-        dynamicView.add(customerService, messageBus)
+            dynamicView.add(customerService, customerDatabase)
+            dynamicView.add(customerService, messageBus)
 
-        dynamicView.startParallelSequence()
-        dynamicView.add(messageBus, reportingService)
-        dynamicView.add(reportingService, reportingDatabase)
-        dynamicView.endParallelSequence()
+            dynamicView.startParallelSequence()
+            dynamicView.add(messageBus, reportingService)
+            dynamicView.add(reportingService, reportingDatabase)
+            dynamicView.endParallelSequence()
 
-        dynamicView.startParallelSequence()
-        dynamicView.add(messageBus, auditService)
-        dynamicView.add(auditService, auditStore)
-        dynamicView.endParallelSequence()
+            dynamicView.startParallelSequence()
+            dynamicView.add(messageBus, auditService)
+            dynamicView.add(auditService, auditStore)
+            dynamicView.endParallelSequence()
 
-        dynamicView.startParallelSequence()
-        dynamicView.add(
-            customerService,
-            "Confirms update to",
-            customerApplication
-        )
-        dynamicView.endParallelSequence()
-    }
+            dynamicView.startParallelSequence()
+            dynamicView.add(
+                customerService,
+                "Confirms update to",
+                customerApplication
+            )
+            dynamicView.endParallelSequence()
+        }
 }

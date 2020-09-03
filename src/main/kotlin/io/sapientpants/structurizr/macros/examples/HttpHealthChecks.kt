@@ -4,7 +4,7 @@ import com.structurizr.model.Container
 import io.github.sapientpants.structurizr.macros.Tags
 import io.github.sapientpants.structurizr.macros.builder.StructurizrBuilder
 
-fun main(args: Array<String>) {
+fun main() {
     StructurizrBuilder(
         "structurizr-macros-examples",
         "HTTP-based health checks example",

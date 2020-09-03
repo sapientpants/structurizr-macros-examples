@@ -2,9 +2,9 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     application
-    kotlin("jvm") version "1.3.70"
-    id("org.jlleitschuh.gradle.ktlint") version "9.2.1"
-    id("org.jlleitschuh.gradle.ktlint-idea") version "9.2.1"
+    kotlin("jvm") version "1.4.0"
+    id("org.jlleitschuh.gradle.ktlint") version "9.3.0"
+    id("org.jlleitschuh.gradle.ktlint-idea") version "9.3.0"
 }
 
 group = "io.github.sapientpants"
@@ -20,7 +20,7 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
-    implementation("io.github.sapientpants:structurizr-macros:0.0.35")
+    implementation("io.github.sapientpants:structurizr-macros:2020.6")
 }
 
 tasks.withType<KotlinCompile> {

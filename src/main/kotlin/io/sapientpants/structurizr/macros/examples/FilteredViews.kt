@@ -25,7 +25,7 @@ class FilteredViewsStyle : Style() {
     }
 }
 
-fun main(args: Array<String>) {
+fun main() {
     StructurizrBuilder(
         "structurizr-macros-examples",
         "Filtered Views",
@@ -69,5 +69,5 @@ fun main(args: Array<String>) {
                 FilterMode.Exclude,
                 CURRENT_STATE
             )
-    }
+        }
 }

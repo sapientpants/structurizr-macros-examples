@@ -33,7 +33,7 @@ class FinancialRiskSystemStyle : Style() {
     }
 }
 
-fun main(args: Array<String>) {
+fun main() {
     StructurizrBuilder(
         "structurizr-macros-examples",
         "Financial Risk System",

@@ -32,32 +32,32 @@ class ShapesStyle : Style() {
     }
 }
 
-fun main(args: Array<String>) {
+fun main() {
     StructurizrBuilder(
         "structurizr-macros-examples",
         "Shapes",
         "An example of all shapes available in Structurizr."
     ).style(ShapesStyle())
         .buildAndRender { model, views ->
-        model.addSoftwareSystem("Box", "Description").addTags("Box")
-        model.addSoftwareSystem("RoundedBox", "Description").addTags("RoundedBox")
-        model.addSoftwareSystem("Ellipse", "Description").addTags("Ellipse")
-        model.addSoftwareSystem("Circle", "Description").addTags("Circle")
-        model.addSoftwareSystem("Hexagon", "Description").addTags("Hexagon")
-        model.addSoftwareSystem("Cylinder", "Description").addTags("Cylinder")
-        model.addSoftwareSystem("WebBrowser", "Description").addTags("Web Browser")
-        model.addSoftwareSystem("Mobile Device Portrait", "Description").addTags("Mobile Device Portrait")
-        model.addSoftwareSystem("Mobile Device Landscape", "Description").addTags("Mobile Device Landscape")
-        model.addSoftwareSystem("Pipe", "Description").addTags("Pipe")
-        model.addSoftwareSystem("Folder", "Description").addTags("Folder")
-        model.addSoftwareSystem("Robot", "Description").addTags("Robot")
-        model.addPerson("Person", "Description").addTags("Person")
+            model.addSoftwareSystem("Box", "Description").addTags("Box")
+            model.addSoftwareSystem("RoundedBox", "Description").addTags("RoundedBox")
+            model.addSoftwareSystem("Ellipse", "Description").addTags("Ellipse")
+            model.addSoftwareSystem("Circle", "Description").addTags("Circle")
+            model.addSoftwareSystem("Hexagon", "Description").addTags("Hexagon")
+            model.addSoftwareSystem("Cylinder", "Description").addTags("Cylinder")
+            model.addSoftwareSystem("WebBrowser", "Description").addTags("Web Browser")
+            model.addSoftwareSystem("Mobile Device Portrait", "Description").addTags("Mobile Device Portrait")
+            model.addSoftwareSystem("Mobile Device Landscape", "Description").addTags("Mobile Device Landscape")
+            model.addSoftwareSystem("Pipe", "Description").addTags("Pipe")
+            model.addSoftwareSystem("Folder", "Description").addTags("Folder")
+            model.addSoftwareSystem("Robot", "Description").addTags("Robot")
+            model.addPerson("Person", "Description").addTags("Person")
 
-        val view: SystemLandscapeView = views.createSystemLandscapeView(
-            "shapes",
-            "An example of all shapes available in Structurizr."
-        )
-        view.addAllElements()
-        view.setPaperSize(PaperSize.A5_Landscape)
-    }
+            val view: SystemLandscapeView = views.createSystemLandscapeView(
+                "shapes",
+                "An example of all shapes available in Structurizr."
+            )
+            view.addAllElements()
+            view.setPaperSize(PaperSize.A5_Landscape)
+        }
 }

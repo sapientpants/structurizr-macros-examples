@@ -5,7 +5,7 @@ import io.github.sapientpants.structurizr.macros.builder.StructurizrBuilder
 import io.github.sapientpants.structurizr.macros.documentation.ArchitectureDocumentation
 import java.io.File
 
-fun main(args: Array<String>) {
+fun main() {
     StructurizrBuilder(
         "structurizr-macros-examples",
         "Corporate Branding",
@@ -24,5 +24,5 @@ fun main(args: Array<String>) {
             val branding = views.configuration.branding
             branding.logo =
                 ImageUtils.getImageAsDataUri(File("./src/main/resources/structurizr-logo.png"))
-    }
+        }
 }
